@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     # Redirect
     'django.contrib.sites',
     'django.contrib.redirects',
@@ -53,6 +54,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
     'django.contrib.redirects.middleware.RedirectFallbackMiddleware',
+    # CORS
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'redirect.urls'
@@ -133,6 +136,8 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny'
     ]
 }
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 import django_heroku
 django_heroku.settings(locals())
